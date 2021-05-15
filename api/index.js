@@ -46,4 +46,8 @@ apiRouter.use((req, res, next) => {
     next();
   });
 
+  apiRouter.use((error, req, res, next) => {
+    res.send(error);
+  });
+
 module.exports = apiRouter;
