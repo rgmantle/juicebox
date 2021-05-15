@@ -5,6 +5,7 @@
 // Update --> PUT ---> UPDATE
 // Delete --> DELETE ---> DELETE
 
+require('dotenv').config();
 
 const PORT = 3000;
 const { response } = require('express');
