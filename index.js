@@ -18,7 +18,8 @@ server.use(bodyParser.json());
 const morgan = require('morgan');
 server.use(morgan('dev'));
 
-const client = new Client(process.env.DATABASE_URL || 'postgres://localhost:5432/juicebox-dev')
+const client = new Client(process.env.DATABASE_URL || 'postgres://localhost:5432/juicebox-dev');
+client.connect();
 
 const apiRouter = require('./api');
 server.use('/api', apiRouter);
