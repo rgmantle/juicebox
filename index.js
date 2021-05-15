@@ -19,7 +19,7 @@ const morgan = require('morgan');
 server.use(morgan('dev'));
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL || 'postgres://localhost:5432/juicebox-dev',
+  connectionString: process.env.DATABASE_URL || 'https://evening-anchorage-30821.herokuapp.com/',
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
 });
 client.connect();
