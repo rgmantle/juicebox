@@ -7,7 +7,7 @@
 
 require('dotenv').config();
 
-const PORT = 3000;
+const { PORT = 3000 } = process.env;
 const { response } = require('express');
 const express = require('express');
 const server = express();
@@ -18,9 +18,7 @@ server.use(bodyParser.json());
 const morgan = require('morgan');
 server.use(morgan('dev'));
 
-const { client } = require('./db');
-client.connect();
-
+const client = new Client(process.env.DATABASE_URL || 'postgres://localhost:5432/juicebox-dev');client.connect();
 const apiRouter = require('./api');
 server.use('/api', apiRouter);
 
